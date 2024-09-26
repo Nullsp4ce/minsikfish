@@ -27,7 +27,7 @@ class Uci:
             "quit": self.quit,
         }
         try:
-            intents[command]()
+            intents[command](commands)
         except KeyError:
             # print(f"uci.parse: unsupported command {command}")
             pass
@@ -60,7 +60,7 @@ class Uci:
             return
 
         print(f"info depth 1 pv {best_move.uci()}")
-        print(f"bestmove ${best_move}")
+        print(f"bestmove {best_move}")
 
     def search_start(self, *commands):
         pain = threading.Thread(target=self.search, args=())

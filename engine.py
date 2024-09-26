@@ -1,20 +1,14 @@
 import chess
 
 INFINITY = 32768
-START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+
 
 class Minsikfish:
-    
-    value = {
-        'P': 100,
-        'N': 300,
-        'B': 300,
-        'R': 500,
-        'Q': 900,
-        'K': INFINITY
-    }
 
-    def __init__(self, fen = START_FEN):
+    value = {"P": 100, "N": 300, "B": 300, "R": 500, "Q": 900, "K": INFINITY}
+
+    def __init__(self, fen=START_FEN):
         self.board = chess.Board(fen)
 
     def push(self, move: chess.Move):
@@ -40,11 +34,11 @@ class Minsikfish:
 
         for move in moves:
             self.board.push(move)
-            
+
             score = self.hit_blunt()
-            
+
             self.board.pop()
-            
+
             if score > best_score:
                 best_score = score
                 best_move = move

@@ -11,7 +11,9 @@ class Uci:
 
     def wait(self):
         # print("uci.wait")
-        self.parse(input())
+        should = True
+        while should:
+            should = self.parse(input())
 
     def parse(self, read: str):
         commands = read.rstrip().split()
@@ -29,8 +31,7 @@ class Uci:
         except KeyError:
             # print(f"uci.parse: unsupported command {command}")
             pass
-        if command != "quit":
-            self.wait()
+        return command != "quit"
 
     def uci(self, *commands):
         print("id name Minsikfish 0.1")

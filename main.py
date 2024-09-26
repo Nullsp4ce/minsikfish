@@ -23,6 +23,7 @@ class Uci:
             "isready": self.ready,
             "position": self.set_position,
             "ucinewgame": self.new_game,
+            "print": self.d,
             "go": self.search_start,
             "quit": self.quit,
         }
@@ -52,6 +53,9 @@ class Uci:
         elif mode == "fen":
             fen = commands.pop(0)
             self.minsik.board.set_fen(fen)
+
+    def d(self, *commands):
+        print(self.minsik.board)
 
     def search(self):
         best_move = self.minsik.struggle()

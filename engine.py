@@ -1,4 +1,5 @@
 import chess
+import random
 
 INFINITY = 32768
 START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
@@ -28,19 +29,5 @@ class Minsikfish:
 
     def struggle(self):
         # actually search function
-        moves = self.board.generate_pseudo_legal_moves()
-        best_move = None
-        best_score = -INFINITY
-
-        for move in moves:
-            self.board.push(move)
-
-            score = self.hit_blunt()
-
-            self.board.pop()
-
-            if score > best_score:
-                best_score = score
-                best_move = move
-
-        return best_move
+        moves = self.board.generate_legal_moves()
+        return random.choice(list(moves))

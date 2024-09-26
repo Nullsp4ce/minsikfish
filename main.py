@@ -34,27 +34,36 @@ class Uci:
             pass
         return command != "quit"
 
-    def uci(self, *commands):
+    def uci(self, commands):
         print("id name Minsikfish 0.1")
         print("id author Nullsp4ce")
         # further options go here
         print("uciok")
 
-    def ready(self, *commands):
+    def ready(self, commands):
         print("readyok")
 
-    def new_game(self, *commands):
+    def new_game(self, commands):
         self.minsik.board.set_fen(START_FEN)
 
-    def set_position(self, mode, *commands):
+    def set_position(self, commands):
         # print("uci.set_position")
+        consumed = 0
+        mode = commands[0]
         if mode == "startpos":
             self.minsik.board.set_fen(START_FEN)
+            consumed = 1
         elif mode == "fen":
-            fen = commands.pop(0)
+            # fully qualified FEN has 6 segments, but... oh no
+            fen = " ".join(commands[1:7])
             self.minsik.board.set_fen(fen)
+            consumed = 7  # ?
 
-    def d(self, *commands):
+        if len(commands) > consumed:
+            for move_uci in commands[consumed + 1 :]:
+                self.minsik.board.push_uci(move_uci)
+
+    def d(self, commands):
         print(self.minsik.board)
 
     def search(self):

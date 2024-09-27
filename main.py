@@ -1,6 +1,5 @@
 from engine import Minsikfish, START_FEN
 import threading
-import time
 
 
 class Uci:

@@ -67,13 +67,11 @@ class Uci:
         print(self.minsik.board)
 
     def search(self):
-        best_move = self.minsik.struggle()
-        if best_move is None:
-            print("info string ahnsik")
-            return
+        bm = self.minsik.awake()
 
-        print(f"info depth 1 pv {best_move.uci()}")
-        print(f"bestmove {best_move}")
+        # print when search is completed/stopped
+        print(f"bestmove {bm}")
+        print("info string ahnsik")
 
     def search_start(self, *commands):
         pain = threading.Thread(target=self.search, args=())

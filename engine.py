@@ -20,27 +20,48 @@ class Minsikfish:
         for _, piece in self.board.piece_map().items():
             if piece is None:
                 continue
-            elif piece.color is chess.WHITE:
-                score += self.value[piece.symbol()]
+            elif piece.color is self.board.turn:
+                score += self.value[piece.symbol().upper()]
             else:
                 score -= self.value[piece.symbol().upper()]
         return score
 
-    def struggle(self):
+    def awake(self):
+        # IDDFS function
+        this_depth = 0
+        force_depth = 1  # depth-limiting option for example
+        # TODO: change into while-true + stop + time management
+        while this_depth < force_depth:
+            this_depth += 1
+            (pv, score) = self.struggle(this_depth)
+            pv_uci = list(map(lambda move: move.uci(), pv))
+            print(f"info depth {this_depth} score cp {score} pv {' '.join(pv_uci)}")
+        return pv_uci[0]
+
+    def struggle(self, depth=1) -> tuple[list[chess.Move], int]:
         # actually search function
-        moves = self.board.generate_pseudo_legal_moves()
-        best_move = None
+        # TODO: support partial search
+
+        if self.board.is_checkmate():
+            return ([], -INFINITY)
+        if self.board.is_stalemate():
+            return ([], 0)
+
+        if depth == 0:
+            return ([], self.hit_blunt())
+
+        moves = self.board.generate_legal_moves()
+        pv: list[chess.Move] = []
         best_score = -INFINITY
 
         for move in moves:
             self.board.push(move)
-
-            score = self.hit_blunt()
-
+            (following, score) = self.struggle(depth - 1)
+            score *= -1
             self.board.pop()
 
             if score > best_score:
+                pv = [move, *following]
                 best_score = score
-                best_move = move
 
-        return best_move
+        return (pv, best_score)

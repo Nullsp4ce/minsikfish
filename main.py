@@ -65,18 +65,18 @@ class Uci:
     def d(self, commands):
         print(self.minsik.board)
 
-    def search(self):
+    def search(self, commands):
         bm = self.minsik.awake()
 
         # print when search is completed/stopped
         print(f"bestmove {bm}")
         print("info string ahnsik")
 
-    def search_start(self, *commands):
-        pain = threading.Thread(target=self.search, args=())
+    def search_start(self, commands):
+        pain = threading.Thread(target=self.search, args=([commands]))
         pain.start()
 
-    def quit(self, *commands):
+    def quit(self, commands):
         # print("uci.quit")
         return
 

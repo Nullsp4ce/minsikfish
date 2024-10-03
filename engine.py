@@ -5,6 +5,16 @@ from math import trunc
 INFINITY = 32768
 START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 
+MATE_LIMIT = 1000
+
+
+def mate_distancing(num):
+    if num >= INFINITY - MATE_LIMIT:
+        return num - 1
+    if num <= -(INFINITY - MATE_LIMIT):
+        return num + 1
+    return num
+
 
 class Minsikfish:
 
@@ -69,6 +79,7 @@ class Minsikfish:
             self.board.push(move)
             (following, score) = self.struggle(depth - 1)
             score *= -1
+            score = mate_distancing(score)
             self.board.pop()
 
             if score > best_score:

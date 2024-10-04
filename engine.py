@@ -39,24 +39,29 @@ class Minsikfish:
                 score -= self.value[piece.symbol().upper()]
         return score
 
+    def should_runsik(self):
+        force_depth = 3  # depth-limiting option for example
+        # TODO: change into while-true + stop + time management
+        return self.depth > force_depth
+
     def awake(self):
         # IDDFS function
         self.nodes = 0
         self.start_millis = perf_counter() * 1000
-        this_depth = 0
-        force_depth = 3  # depth-limiting option for example
-        # TODO: change into while-true + stop + time management
-        while this_depth < force_depth:
-            this_depth += 1
-            (pv, score) = self.struggle(this_depth)
+        self.depth = 1
+        while True:
+            (pv, score) = self.struggle(self.depth)
             end_millis = perf_counter() * 1000
             millis_time = trunc(end_millis - self.start_millis)
             nps = trunc(self.nodes * 1000 / (end_millis - self.start_millis))
             pv_uci = list(map(lambda move: move.uci(), pv))
             print(
-                f"info depth {this_depth} score cp {score} time {millis_time} nodes {self.nodes} nps {nps} pv {' '.join(pv_uci)}"
+                f"info depth {self.depth} score cp {score} time {millis_time} nodes {self.nodes} nps {nps} pv {' '.join(pv_uci)}"
             )
             sys.stdout.flush()
+            self.depth += 1
+            if self.should_runsik():
+                break
         return pv_uci[0]
 
     def struggle(self, depth=1) -> tuple[list[chess.Move], int]:

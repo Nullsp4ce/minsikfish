@@ -28,6 +28,9 @@ class Minsikfish:
     def push(self, move: chess.Move):
         self.board.push(move)
 
+    def is_stm_white(self):
+        return self.board.turn == chess.WHITE
+
     def hit_blunt(self):
         # actually evaluation function
         score = 0

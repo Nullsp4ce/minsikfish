@@ -76,8 +76,24 @@ class Uci:
         sys.stdout.flush()
 
     def search_start(self, commands):
-        # TODO: construct searchlimiter from uci commands
-        lim = clock.SearchLimiter(clock.TimingMode.DEPTH, depth=3)
+        mode = commands.pop(0)
+        match mode:
+            case "depth":
+                value = int(commands.pop(0))
+                lim = clock.SearchLimiter(clock.TimingMode.DEPTH, depth=value)
+            case "nodes":
+                value = int(commands.pop(0))
+                lim = clock.SearchLimiter(clock.TimingMode.NODES, nodes=value)
+            case "movetime":
+                value = int(commands.pop(0))
+                lim = clock.lim_from_fixed(value)
+            case "infinite":
+                lim = clock.SearchLimiter(clock.TimingMode.INFINITE)
+            case _:
+                lim = clock.lim_from_tc_from_str(
+                    self.minsik.is_stm_white(), [mode, *commands]
+                )
+
         pain = threading.Thread(target=self.search, args=([lim]))
         pain.start()
 

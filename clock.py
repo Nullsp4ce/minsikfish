@@ -48,3 +48,26 @@ def from_tc(is_white: bool, wtime, btime, winc, binc, movestogo):
 def lim_from_tc(is_white: bool, wtime, btime, winc, binc, movestogo):
     movetime = from_tc(is_white, wtime, btime, winc, binc, movestogo)
     return SearchLimiter(TimingMode.TC, movetime=movetime)
+
+
+def lim_from_tc_from_str(is_stm_white, commands):
+    wtime = 0
+    btime = 0
+    winc = 0
+    binc = 0
+    movestogo = 0
+    pairs = [commands[i * 2 : (i + 1) * 2] for i in range(int(len(commands) / 2))]
+
+    for [key, value] in pairs:
+        match key:
+            case "wtime":
+                wtime = int(value)
+            case "btime":
+                btime = int(value)
+            case "winc":
+                winc = int(value)
+            case "binc":
+                binc = int(value)
+            case "movestogo":
+                movestogo = int(value)
+    return lim_from_tc(is_stm_white, wtime, btime, winc, binc, movestogo)

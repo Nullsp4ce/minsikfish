@@ -1,6 +1,7 @@
 import chess
 from time import perf_counter
 from math import trunc
+import sys
 
 INFINITY = 32768
 START_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
@@ -43,7 +44,7 @@ class Minsikfish:
         self.nodes = 0
         start_time = perf_counter()
         this_depth = 0
-        force_depth = 1  # depth-limiting option for example
+        force_depth = 3  # depth-limiting option for example
         # TODO: change into while-true + stop + time management
         while this_depth < force_depth:
             this_depth += 1
@@ -55,6 +56,7 @@ class Minsikfish:
             print(
                 f"info depth {this_depth} score cp {score} time {millis_time} nodes {self.nodes} nps {nps} pv {' '.join(pv_uci)}"
             )
+            sys.stdout.flush()
         return pv_uci[0]
 
     def struggle(self, depth=1) -> tuple[list[chess.Move], int]:

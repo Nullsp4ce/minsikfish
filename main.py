@@ -1,5 +1,6 @@
 from engine import Minsikfish, START_FEN
 import threading
+import sys
 
 
 class Uci:
@@ -71,6 +72,7 @@ class Uci:
         # print when search is completed/stopped
         print(f"bestmove {bm}")
         print("info string ahnsik")
+        sys.stdout.flush()
 
     def search_start(self, commands):
         pain = threading.Thread(target=self.search, args=([commands]))

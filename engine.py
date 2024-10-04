@@ -42,16 +42,16 @@ class Minsikfish:
     def awake(self):
         # IDDFS function
         self.nodes = 0
-        start_time = perf_counter()
+        self.start_millis = perf_counter() * 1000
         this_depth = 0
         force_depth = 3  # depth-limiting option for example
         # TODO: change into while-true + stop + time management
         while this_depth < force_depth:
             this_depth += 1
             (pv, score) = self.struggle(this_depth)
-            end_time = perf_counter()
-            millis_time = trunc((end_time - start_time) * 1000)
-            nps = trunc(self.nodes / (end_time - start_time))
+            end_millis = perf_counter() * 1000
+            millis_time = trunc(end_millis - self.start_millis)
+            nps = trunc(self.nodes * 1000 / (end_millis - self.start_millis))
             pv_uci = list(map(lambda move: move.uci(), pv))
             print(
                 f"info depth {this_depth} score cp {score} time {millis_time} nodes {self.nodes} nps {nps} pv {' '.join(pv_uci)}"

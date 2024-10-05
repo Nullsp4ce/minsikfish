@@ -44,6 +44,9 @@ class Minsikfish:
         return score
 
     def should_runsik(self):
+        # called in IDDFS root
+        if clock.state == clock.State.IDLE:
+            return True
         lim = self.limiter
         match lim.mode:
             case clock.TimingMode.DEPTH:
@@ -59,6 +62,25 @@ class Minsikfish:
             case _:
                 return False
 
+    def should_runsik_nodes(self):
+        # 'run every few thousand nodes or so': called at depth 3 left
+        # (affected by general nodes per depth)
+        if clock.state == clock.State.IDLE:
+            return True
+        lim = self.limiter
+        match lim.mode:
+            case clock.TimingMode.DEPTH:
+                return self.depth > lim.depth
+            case clock.TimingMode.NODES:
+                return self.nodes > lim.nodes
+            case mode if mode in [clock.TimingMode.MOVETIME, clock.TimingMode.TC]:
+                # quit only if movetime is passed (different from root fx)
+                bf = 20
+                cur_millis = perf_counter() * 1000
+                return (cur_millis - self.start_millis) > lim.movetime
+            case _:
+                return False
+
     def awake(self, limiter: clock.SearchLimiter):
         # IDDFS function
         self.nodes = 0
@@ -67,6 +89,8 @@ class Minsikfish:
         self.depth = 1
         while True:
             (pv, score) = self.struggle(self.depth)
+            if pv is None:
+                break
             end_millis = perf_counter() * 1000
             millis_time = trunc(end_millis - self.start_millis)
             nps = trunc(self.nodes * 1000 / (end_millis - self.start_millis))
@@ -83,6 +107,9 @@ class Minsikfish:
     def struggle(self, depth=1) -> tuple[list[chess.Move], int]:
         # actually search function
         # TODO: support partial search
+
+        if depth == 3 and self.should_runsik_nodes():
+            return (None, None)
 
         self.nodes += 1
 
@@ -101,6 +128,8 @@ class Minsikfish:
         for move in moves:
             self.board.push(move)
             (following, score) = self.struggle(depth - 1)
+            if score is None:
+                return (None, None)
             score *= -1
             score = mate_distancing(score)
             self.board.pop()

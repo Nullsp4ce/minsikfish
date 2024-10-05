@@ -26,6 +26,7 @@ class Uci:
             "ucinewgame": self.new_game,
             "print": self.d,
             "go": self.search_start,
+            "stop": self.stop,
             "quit": self.quit,
         }
         try:
@@ -98,8 +99,12 @@ class Uci:
             case _:
                 lim = clock.SearchLimiter(clock.TimingMode.INFINITE)
 
+        clock.state = clock.State.SEARCH
         pain = threading.Thread(target=self.search, args=([lim]))
         pain.start()
+
+    def stop(self, commands):
+        clock.state = clock.State.IDLE
 
     def quit(self, commands):
         # print("uci.quit")

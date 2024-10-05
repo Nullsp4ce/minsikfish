@@ -1,6 +1,7 @@
 from engine import Minsikfish, START_FEN
 import threading
 import sys
+import clock
 
 
 class Uci:
@@ -66,8 +67,8 @@ class Uci:
     def d(self, commands):
         print(self.minsik.board)
 
-    def search(self, commands):
-        bm = self.minsik.awake()
+    def search(self, lim: clock.SearchLimiter):
+        bm = self.minsik.awake(lim)
 
         # print when search is completed/stopped
         print(f"bestmove {bm}")
@@ -75,7 +76,25 @@ class Uci:
         sys.stdout.flush()
 
     def search_start(self, commands):
-        pain = threading.Thread(target=self.search, args=([commands]))
+        mode = commands.pop(0)
+        match mode:
+            case "depth":
+                value = int(commands.pop(0))
+                lim = clock.SearchLimiter(clock.TimingMode.DEPTH, depth=value)
+            case "nodes":
+                value = int(commands.pop(0))
+                lim = clock.SearchLimiter(clock.TimingMode.NODES, nodes=value)
+            case "movetime":
+                value = int(commands.pop(0))
+                lim = clock.lim_from_fixed(value)
+            case item if item in ["wtime", "btime", "winc", "binc", "movestogo"]:
+                lim = clock.lim_from_tc_from_str(
+                    self.minsik.is_stm_white(), [mode, *commands]
+                )
+            case _:
+                lim = clock.SearchLimiter(clock.TimingMode.INFINITE)
+
+        pain = threading.Thread(target=self.search, args=([lim]))
         pain.start()
 
     def quit(self, commands):

@@ -6,6 +6,15 @@ buffer_millis = 200
 buffer_moves = 2
 
 
+class State(Enum):
+    IDLE = 1
+    SEARCH = 2
+    # PONDER = 3
+
+
+state: State = State.IDLE
+
+
 class TimingMode(Enum):
     DEPTH = 1
     NODES = 2

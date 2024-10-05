@@ -44,6 +44,9 @@ class Minsikfish:
         return score
 
     def should_runsik(self):
+        # TODO: split on root/nodes (increases responsiveness to `stop`)
+        if clock.state == clock.State.IDLE:
+            return True
         lim = self.limiter
         match lim.mode:
             case clock.TimingMode.DEPTH:

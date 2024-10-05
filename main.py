@@ -36,7 +36,7 @@ class Uci:
         return command != "quit"
 
     def uci(self, commands):
-        print("id name Minsikfish 0.3")
+        print("id name Minsikfish 0.4")
         print("id author Nullsp4ce")
         # further options go here
         print("uciok")

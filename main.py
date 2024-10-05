@@ -50,7 +50,9 @@ class Uci:
     def set_position(self, commands):
         # print("uci.set_position")
         consumed = 0
-        mode = commands[0]
+        mode = ""
+        if len(commands) > 0:
+            mode = commands[0]
         if mode == "startpos":
             self.minsik.board.set_fen(START_FEN)
             consumed = 1
@@ -76,7 +78,9 @@ class Uci:
         sys.stdout.flush()
 
     def search_start(self, commands):
-        mode = commands.pop(0)
+        mode = ""
+        if len(commands) > 0:
+            mode = commands.pop(0)
         match mode:
             case "depth":
                 value = int(commands.pop(0))

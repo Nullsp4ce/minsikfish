@@ -52,10 +52,10 @@ class Minsikfish:
                 return self.nodes > lim.nodes
             case mode if mode in [clock.TimingMode.MOVETIME, clock.TimingMode.TC]:
                 # branching factor: dictates whether next ply's search can fully pass
-                # if BF = 3, 1/(1-1/3) = 3/2 of used time is needed again
-                bf = 3
+                # if BF = 3, 3 / 1/(1-1/3) = x2 of used time is needed again
+                bf = 20
                 cur_millis = perf_counter() * 1000
-                return (cur_millis - self.start_millis) * bf / (bf - 1) > lim.movetime
+                return (cur_millis - self.start_millis) * (bf - 1) > lim.movetime
             case _:
                 return False
 

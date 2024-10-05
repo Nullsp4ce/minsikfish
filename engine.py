@@ -84,7 +84,7 @@ class Minsikfish:
         self.start_millis = perf_counter() * 1000
         self.depth = 1
         while True:
-            (pv, score) = self.struggle(self.depth)
+            (pv, score) = self.struggle(depth=self.depth)
             if pv is None:
                 break
             end_millis = perf_counter() * 1000
@@ -100,7 +100,9 @@ class Minsikfish:
                 break
         return pv_uci[0]
 
-    def struggle(self, depth=1) -> tuple[list[chess.Move], int]:
+    def struggle(
+        self, alpha=-INFINITY, beta=INFINITY, depth=1
+    ) -> tuple[list[chess.Move], int]:
         # actually search function
         # TODO: support partial search
 
@@ -123,15 +125,20 @@ class Minsikfish:
 
         for move in moves:
             self.board.push(move)
-            (following, score) = self.struggle(depth - 1)
+            (following, score) = self.struggle(-beta, -alpha, depth - 1)
             if score is None:
                 return (None, None)
             score *= -1
             score = mate_distancing(score)
             self.board.pop()
 
+            # fail-soft alpha-beta
             if score > best_score:
-                pv = [move, *following]
                 best_score = score
+                if score > alpha:
+                    pv = [move, *following]
+                    alpha = score
+            if score >= beta:
+                return ([], best_score)  # can also exceed beta
 
         return (pv, best_score)

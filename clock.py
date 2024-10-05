@@ -31,6 +31,9 @@ class SearchLimiter:
         self.movetime = movetime
 
 
+lim: SearchLimiter
+
+
 def from_fixed(movetime: int):
     if movetime > buffer_millis:
         return movetime - buffer_millis

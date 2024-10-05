@@ -47,18 +47,17 @@ class Minsikfish:
         # called in IDDFS root
         if clock.state == clock.State.IDLE:
             return True
-        lim = self.limiter
-        match lim.mode:
+        match clock.lim.mode:
             case clock.TimingMode.DEPTH:
-                return self.depth > lim.depth
+                return self.depth > clock.lim.depth
             case clock.TimingMode.NODES:
-                return self.nodes > lim.nodes
+                return self.nodes > clock.lim.nodes
             case mode if mode in [clock.TimingMode.MOVETIME, clock.TimingMode.TC]:
                 # branching factor: dictates whether next ply's search can fully pass
                 # if BF = 3, 3 / 1/(1-1/3) = x2 of used time is needed again
                 bf = 20
                 cur_millis = perf_counter() * 1000
-                return (cur_millis - self.start_millis) * (bf - 1) > lim.movetime
+                return (cur_millis - self.start_millis) * (bf - 1) > clock.lim.movetime
             case _:
                 return False
 
@@ -67,25 +66,23 @@ class Minsikfish:
         # (affected by general nodes per depth)
         if clock.state == clock.State.IDLE:
             return True
-        lim = self.limiter
-        match lim.mode:
+        match clock.lim.mode:
             case clock.TimingMode.DEPTH:
-                return self.depth > lim.depth
+                return self.depth > clock.lim.depth
             case clock.TimingMode.NODES:
-                return self.nodes > lim.nodes
+                return self.nodes > clock.lim.nodes
             case mode if mode in [clock.TimingMode.MOVETIME, clock.TimingMode.TC]:
                 # quit only if movetime is passed (different from root fx)
                 bf = 20
                 cur_millis = perf_counter() * 1000
-                return (cur_millis - self.start_millis) > lim.movetime
+                return (cur_millis - self.start_millis) > clock.lim.movetime
             case _:
                 return False
 
-    def awake(self, limiter: clock.SearchLimiter):
+    def awake(self):
         # IDDFS function
         self.nodes = 0
         self.start_millis = perf_counter() * 1000
-        self.limiter = limiter
         self.depth = 1
         while True:
             (pv, score) = self.struggle(self.depth)

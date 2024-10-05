@@ -87,12 +87,12 @@ class Uci:
             case "movetime":
                 value = int(commands.pop(0))
                 lim = clock.lim_from_fixed(value)
-            case "infinite":
-                lim = clock.SearchLimiter(clock.TimingMode.INFINITE)
-            case _:
+            case item if item in ["wtime", "btime", "winc", "binc", "movestogo"]:
                 lim = clock.lim_from_tc_from_str(
                     self.minsik.is_stm_white(), [mode, *commands]
                 )
+            case _:
+                lim = clock.SearchLimiter(clock.TimingMode.INFINITE)
 
         pain = threading.Thread(target=self.search, args=([lim]))
         pain.start()

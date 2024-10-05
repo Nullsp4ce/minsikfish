@@ -79,26 +79,7 @@ class Uci:
         sys.stdout.flush()
 
     def search_start(self, commands):
-        mode = ""
-        if len(commands) > 0:
-            mode = commands.pop(0)
-        match mode:
-            case "depth":
-                value = int(commands.pop(0))
-                clock.lim = clock.SearchLimiter(clock.TimingMode.DEPTH, depth=value)
-            case "nodes":
-                value = int(commands.pop(0))
-                clock.lim = clock.SearchLimiter(clock.TimingMode.NODES, nodes=value)
-            case "movetime":
-                value = int(commands.pop(0))
-                clock.lim = clock.lim_from_fixed(value)
-            case item if item in ["wtime", "btime", "winc", "binc", "movestogo"]:
-                clock.lim = clock.lim_from_tc_from_str(
-                    self.minsik.is_stm_white(), [mode, *commands]
-                )
-            case _:
-                clock.lim = clock.SearchLimiter(clock.TimingMode.INFINITE)
-
+        clock.lim = clock.from_cmd(self.minsik.is_stm_white(), commands)
         clock.state = clock.State.SEARCH
         pain = threading.Thread(target=self.search, args=())
         pain.start()

@@ -83,3 +83,23 @@ def lim_from_tc_from_str(is_stm_white, commands):
             case "movestogo":
                 movestogo = int(value)
     return lim_from_tc(is_stm_white, wtime, btime, winc, binc, movestogo)
+
+
+def from_cmd(is_stm_white, commands):
+    mode = ""
+    if len(commands) > 0:
+        mode = commands.pop(0)
+    match mode:
+        case "depth":
+            value = int(commands.pop(0))
+            return SearchLimiter(TimingMode.DEPTH, depth=value)
+        case "nodes":
+            value = int(commands.pop(0))
+            return SearchLimiter(TimingMode.NODES, nodes=value)
+        case "movetime":
+            value = int(commands.pop(0))
+            return lim_from_fixed(value)
+        case item if item in ["wtime", "btime", "winc", "binc", "movestogo"]:
+            return lim_from_tc_from_str(is_stm_white, [mode, *commands])
+        case _:
+            return SearchLimiter(TimingMode.INFINITE)

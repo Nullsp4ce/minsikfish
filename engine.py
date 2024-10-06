@@ -73,7 +73,6 @@ class Minsikfish:
                 return self.nodes > clock.lim.nodes
             case mode if mode in [clock.TimingMode.MOVETIME, clock.TimingMode.TC]:
                 # quit only if movetime is passed (different from root fx)
-                bf = 20
                 cur_millis = perf_counter() * 1000
                 return (cur_millis - self.start_millis) > clock.lim.movetime
             case _:

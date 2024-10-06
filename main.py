@@ -38,7 +38,7 @@ class Uci:
 
     def uci(self, commands):
         del commands
-        print("id name Minsikfish 0.4")
+        print("id name Minsikfish 0.5")
         print("id author Nullsp4ce")
         # further options go here
         print("uciok")

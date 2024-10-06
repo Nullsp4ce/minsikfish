@@ -94,7 +94,7 @@ class Uci:
 
     def quit(self, commands):
         # print("uci.quit")
-        del commands
+        self.stop(commands)
         return
 
 

@@ -1,7 +1,7 @@
-import chess
 from time import perf_counter
 from math import trunc
 import sys
+import chess
 import clock
 
 INFINITY = 32768
@@ -24,6 +24,9 @@ class Minsikfish:
 
     def __init__(self, fen=START_FEN):
         self.board = chess.Board(fen)
+        self.nodes = 0
+        self.start_millis = 0
+        self.depth = 0
 
     def push(self, move: chess.Move):
         self.board.push(move)
@@ -92,7 +95,9 @@ class Minsikfish:
             nps = trunc(self.nodes * 1000 / (end_millis - self.start_millis))
             pv_uci = list(map(lambda move: move.uci(), pv))
             print(
-                f"info depth {self.depth} score cp {score} time {millis_time} nodes {self.nodes} nps {nps} pv {' '.join(pv_uci)}"
+                f"info depth {self.depth} score cp {score} "
+                f"time {millis_time} nodes {self.nodes} nps {nps} "
+                f"pv {' '.join(pv_uci)}"
             )
             sys.stdout.flush()
             self.depth += 1
@@ -104,7 +109,6 @@ class Minsikfish:
         self, alpha=-INFINITY, beta=INFINITY, depth=1
     ) -> tuple[list[chess.Move], int]:
         # actually search function
-        # TODO: support partial search
 
         if depth == 3 and self.should_runsik_nodes():
             return (None, None)

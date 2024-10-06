@@ -1,6 +1,6 @@
-from engine import Minsikfish, START_FEN
 import threading
 import sys
+from engine import Minsikfish, START_FEN
 import clock
 
 
@@ -37,15 +37,18 @@ class Uci:
         return command != "quit"
 
     def uci(self, commands):
+        del commands
         print("id name Minsikfish 0.4")
         print("id author Nullsp4ce")
         # further options go here
         print("uciok")
 
     def ready(self, commands):
+        del commands
         print("readyok")
 
     def new_game(self, commands):
+        del commands
         self.minsik.board.set_fen(START_FEN)
 
     def set_position(self, commands):
@@ -68,6 +71,7 @@ class Uci:
                 self.minsik.board.push_uci(move_uci)
 
     def d(self, commands):
+        del commands
         print(self.minsik.board)
 
     def search(self):
@@ -85,10 +89,12 @@ class Uci:
         pain.start()
 
     def stop(self, commands):
+        del commands
         clock.state = clock.State.IDLE
 
     def quit(self, commands):
         # print("uci.quit")
+        del commands
         return
 
 

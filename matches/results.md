@@ -13,6 +13,15 @@ _Calculated with [BayesElo](https://www.remi-coulom.fr/Bayesian-Elo/)_
 | 4    | v0.3 -1p                     | 50   | 126 ~ -34  |
 | 5    | v0.2 -take8                  | -131 | -36 ~ -252 |
 
+#### Feature Comparison
+
+| Feature \ Avg. Depth |                          1 |                      3 |                      5 |
+| -------------------- | -------------------------: | ---------------------: | ---------------------: |
+| Random               | -131<br><small>v0.2 -take8 |                        |                        |
+| Minimax              |      50<br><small>v0.3 -1p | 353<br><small>v0.4 -3p |                        |
+| + Time Management    |                            |     335<br><small>v0.4 |                        |
+| Alpha-Beta Pruning   |                            |                        | **361<br><small>v0.5** |
+
 ### Pentanomial
 
 | Version                      | Mo  |      Mi       |    Mi     |    Mi     |    Mi     |    Mi     |

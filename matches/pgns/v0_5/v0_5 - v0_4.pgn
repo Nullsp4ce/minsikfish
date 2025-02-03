@@ -1,0 +1,416 @@
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "1"]
+[White "Minsikfish v0.4"]
+[Black "Minsikfish v0.5"]
+[Result "1/2-1/2"]
+[BlackElo "100"]
+[ECO "B22"]
+[Opening "Sicilian"]
+[Time "00:02:18"]
+[Variation "Alapin, 2...d5 3.exd5 Qxd5 4.d4 Nc6 5.Nf3 Bg4"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "22"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. e4 c5 2. c3 d5 3. exd5 Qxd5 4. d4 Nc6 5. Nf3 Bg4 6. Rg1 {(Rh1-g1 Qd5-e6+
+Ke1-d2) 0.00/3 1} Nf6 {(Ng8-f6 Rg1-h1 Qd5xf3) +3.00/3 0} 7. Rh1 {(Rg1-h1
+Qd5-e6+ Ke1-d2) 0.00/3 1} Rg8 {(Rh8-g8 Rh1-g1 Qd5xf3) +3.00/3 0} 8. Rg1
+{(Rh1-g1 Qd5-e6+ Ke1-d2) 0.00/3 1} Rh8 {(Rg8-h8 Rg1-h1 Qd5-e6+ Ke1-d2)
+0.00/4 1} 9. Rh1 {(Rg1-h1 Qd5-e6+ Ke1-d2) 0.00/3 1} Rg8 {(Rh8-g8 Rh1-g1
+Qd5xf3) +3.00/3 0} 10. Rg1 {(Rh1-g1 Qd5-e6+ Ke1-d2) 0.00/3 1} Rh8 {(Rg8-h8
+Rg1-h1 Qd5-e6+ Ke1-d2) 0.00/4 1} 11. Rh1 {(Rg1-h1 Qd5-e6+ Ke1-d2) 0.00/3 1}
+Rg8 {(Rh8-g8 Rh1-g1 Qd5xf3) +3.00/3 0 3-fold repetition} 1/2-1/2
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "2"]
+[White "Minsikfish v0.5"]
+[Black "Minsikfish v0.4"]
+[Result "1/2-1/2"]
+[BlackElo "100"]
+[ECO "B22"]
+[Opening "Sicilian"]
+[Time "00:02:34"]
+[Variation "Alapin, 2...d5 3.exd5 Qxd5 4.d4 Nc6 5.Nf3 Bg4"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "22"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. e4 c5 2. c3 d5 3. exd5 Qxd5 4. d4 Nc6 5. Nf3 Bg4 6. Rg1 {(Rh1-g1 Qd5-e6+
+Ke1-d2) 0.00/3 0} Nf6 {(Ng8-f6 Rg1-h1 Qd5xf3) +3.00/3 1} 7. Rh1 {(Rg1-h1
+Qd5-e6+ Ke1-d2) 0.00/3 0} Rg8 {(Rh8-g8 Rh1-g1 Qd5xf3) +3.00/3 1} 8. Rg1
+{(Rh1-g1 Qd5-e6+ Ke1-d2) 0.00/3 0} Rh8 {(Rg8-h8 Rg1-h1 Qd5xf3) +3.00/3 1}
+9. Rh1 {(Rg1-h1 Qd5-e6+ Ke1-d2) 0.00/3 0} Rg8 {(Rh8-g8 Rh1-g1 Qd5xf3)
++3.00/3 1} 10. Rg1 {(Rh1-g1 Qd5-e6+ Ke1-d2) 0.00/3 0} Rh8 {(Rg8-h8 Rg1-h1
+Qd5xf3) +3.00/3 1} 11. Rh1 {(Rg1-h1 Qd5-e6+ Ke1-d2) 0.00/3 0} Rg8 {(Rh8-g8
+Rh1-g1 Qd5xf3) +3.00/3 1 3-fold repetition} 1/2-1/2
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "3"]
+[White "Minsikfish v0.4"]
+[Black "Minsikfish v0.5"]
+[Result "1/2-1/2"]
+[BlackElo "100"]
+[ECO "C54"]
+[Opening "Giuoco Piano"]
+[Time "00:02:51"]
+[Variation "6.e5 d5"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "30"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. e5 d5 7. Bb5
+{(Bc4-b5 d4xc3 Bb5xc6+) +1.00/3 1} Qe7 {(Qd8-e7 Rh1-g1 d4xc3 Bb5xc6+)
+-1.00/4 0} 8. Rg1 {(Rh1-g1 d4xc3 Bb5xc6+) +1.00/3 1} Bg4 {(Bc8-g4 Bb5xc6+
+b7xc6 Nf3xd4) 0.00/4 0} 9. Bxc6+ {(Bb5xc6+ b7xc6 Nf3xd4) 0.00/3 1} bxc6
+{(b7xc6 c3xd4 Bc5-d6 Nf3-g5) 0.00/4 0} 10. cxd4 {(c3xd4 Bc5-d6 Nf3-g5)
+0.00/3 1} Bd6 {(Bc5-d6 Rg1-h1 Bg4xf3) +3.00/3 0} 11. Rh1 {(Rg1-h1 Rh8-g8
+Nf3-g5) 0.00/3 0} Rg8 {(Rh8-g8 Rh1-g1 Rg8-h8 Nf3-g5) 0.00/4 0} 12. Rg1
+{(Rh1-g1 Rg8-h8 Nf3-g5) 0.00/3 0} Rh8 {(Rg8-h8 Rg1-h1 Rh8-g8 Nf3-g5) 0.00/4
+0} 13. Rh1 {(Rg1-h1 Rh8-g8 Nf3-g5) 0.00/3 0} Rg8 {(Rh8-g8 Rh1-g1 Rg8-h8
+Nf3-g5) 0.00/4 0} 14. Rg1 {(Rh1-g1 Rg8-h8 Nf3-g5) 0.00/3 0} Rh8 {(Rg8-h8
+Rg1-h1 Rh8-g8 Nf3-g5) 0.00/4 0} 15. Rh1 {(Rg1-h1 Rh8-g8 Nf3-g5) 0.00/3 0}
+Rg8 {(Rh8-g8 Rh1-g1 Rg8-h8 Nf3-g5) 0.00/4 0 3-fold repetition} 1/2-1/2
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "4"]
+[White "Minsikfish v0.5"]
+[Black "Minsikfish v0.4"]
+[Result "1-0"]
+[BlackElo "100"]
+[ECO "C54"]
+[Opening "Giuoco Piano"]
+[Time "00:03:09"]
+[Variation "6.e5 d5"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "35"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d4 exd4 6. e5 d5 7. Bb5
+{(Bc4-b5 d4xc3 Bb5xc6+) +1.00/3 0} Qe7 {(Qd8-e7 Bb5xc6+ b7xc6) +1.00/3 1}
+8. Bxc6+ {(Bb5xc6+ b7xc6 c3xd4 Qe7xe5+) -1.00/4 0} bxc6 {(b7xc6 Bc1-g5
+d4xc3 Bg5xf6) -1.00/4 9} 9. Qa4 {(Qd1-a4 Ke8-f8 Qa4xc6 Qe7xe5+) -1.00/4 2}
+Kf8 {(Ke8-f8 Qa4xc6 Qe7xe5+) +1.00/3 1} 10. Qxc6 {(Qa4xc6 Ra8-b8 c3xd4
+Rb8xb2) 0.00/4 5} Rb8 {(Ra8-b8 c3xd4 Rb8xb2) 0.00/3 1} 11. cxd4 {(c3xd4
+Bc8-b7 Qc6-b5 Qe7xe5+) 0.00/4 1} Bb7 {(Bc8-b7 Qc6-b5 Qe7xe5+) 0.00/3 1} 12.
+Qxc5 {(Qc6xc5 Rh8-g8 Qc5xe7+ Kf8xe7) +4.00/4 0} Rg8 {(Rh8-g8 Qc5xe7+
+Kf8xe7) -4.00/3 0} 13. Qxa7 {(Qc5xa7 Qe7-d8 Qa7-c5+ Kf8-e8 e5xf6) +8.00/5
+3} Qb4+ {(Qe7-b4+ Ke1-e2 Qb4xd4) -4.00/3 0} 14. Bd2 {(Bc1-d2 Qb4xb2 Qa7xb8+
+Kf8-e7) +9.00/4 0} Qxb2 {(Qb4xb2 Qa7xb8+ Kf8-e7) -9.00/3 0} 15. Qxb8+
+{(Qa7xb8+ Nf6-e8 Bd2-b4+ Qb2xb4+) +6.00/4 5} Ne8 {(Nf6-e8 Bd2-c3 Qb2-c1+
+Ke1-e2) -9.00/4 2} 16. Ng5 {(Nf3-g5 Qb2xa1 Ng5xh7+ Kf8-e7) +5.00/4 1} Qxa1
+{(Qb2xa1 Ng5xh7+ Kf8-e7) -5.00/3 0} 17. Bb4+ {(Bd2-b4+ c7-c5 Bb4xc5+) +M1/5
+1} c5 {(c7-c5 Bb4xc5+) -M1/4 0} 18. Bxc5# {(Bb4xc5+) +M0/5 2} 1-0
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "5"]
+[White "Minsikfish v0.4"]
+[Black "Minsikfish v0.5"]
+[Result "0-1"]
+[BlackElo "100"]
+[ECO "B12"]
+[Opening "Caro-Kann"]
+[Time "00:03:59"]
+[Variation "Advance Variation, 3...c5 4.dxc5"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "42"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. e4 c6 2. d4 d5 3. e5 c5 4. dxc5 e6 5. Be3 Ne7 6. Bb5+ {(Bf1-b5+ Bc8-d7
+Bb5xd7+) +4.00/3 1} Bd7 {(Bc8-d7 Nb1-c3 Rh8-g8 Bb5xd7+ Ke8xd7) -1.00/5 0}
+7. Bxd7+ {(Bb5xd7+ Ke8xd7 Qd1xd5+) +2.00/3 1} Kxd7 {(Ke8xd7 Be3-g5 Qd8-a5+
+Ke1-e2 Qa5xc5) 0.00/5 0} 8. Ke2 {(Ke1-e2 Rh8-g8 Qd1xd5+) +2.00/3 0} Nf5
+{(Ne7-f5 Be3-f4 Bf8xc5 Qd1xd5+) -1.00/4 0} 9. Bf4 {(Be3-f4 Bf8xc5 Qd1xd5+)
++1.00/3 1} Bxc5 {(Bf8xc5 Bf4-c1 Rh8-g8 Qd1xd5+) -1.00/4 0} 10. Bc1 {(Bf4-c1
+Rh8-g8 Qd1xd5+) +1.00/3 1} Qh4 {(Qd8-h4 Ng1-h3 Qh4-h5+ Ke2-d3) 0.00/4 0}
+11. Nh3 {(Ng1-h3 Qh4-h5+ Ke2-d3) 0.00/3 1} Rg8 {(Rh8-g8 Ke2-d3 Rg8-h8
+Nh3-g5) 0.00/4 1} 12. Kd3 {(Ke2-d3 Rg8-h8 Nh3-g5) 0.00/3 1} Qe4+ {(Qh4-e4+
+Kd3-c3 Qe4xe5+ Kc3-d3) +1.00/4 0} 13. Kc3 {(Kd3-c3 Qe4xg2 Rh1-e1 Qg2xh3+)
+-4.00/4 3} Qxg2 {(Qe4xg2 Nh3-g5 Bc5xf2 Ng5xh7) +1.00/4 0} 14. Ng5 {(Nh3-g5
+Bc5xf2 Ng5xh7) -1.00/3 1} Bd4+ {(Bc5-d4+ Kc3-b4 Qg2xh1) +6.00/3 0} 15. Kb4
+{(Kc3-b4 Nb8-c6+ Kb4-b5 Qg2xh1) -6.00/4 7} Nc6+ {(Nb8-c6+ Kb4-b5 Bd4xe5
+Ng5xh7) +1.00/4 0} 16. Kb5 {(Kb4-b5 Bd4xf2 Ng5xh7 Qg2xh1) -6.00/4 8} Bxf2
+{(Bd4xf2 Ng5xh7 Qg2xh1) +6.00/3 0} 17. Nxh7 {(Ng5xh7 Nc6xe5 Qd1xd5+)
+-1.00/3 1} Qe4 {(Qg2-e4 Nh7-f8+ Rg8xf8 Qd1xd5+) +3.00/4 0} 18. Nf8+
+{(Nh7-f8+ Rg8xf8 Qd1xd5+) -3.00/3 1} Rgxf8 {(Rg8xf8 Qd1xd5+ Qe4xd5+ Kb5-a4)
++12.00/4 5} 19. Qxd5+ {(Qd1xd5+ Qe4xd5+ Kb5-a4) -12.00/3 1} Qxd5+ {(Qe4xd5+
+Kb5-a4 Qd5-a5+ Ka4-b3 Qa5-b4+) +M2/5 5} 20. Ka4 {(Kb5-a4 Qd5-a5+ Ka4-b3
+Qa5-b4+) -M2/4 1} Qa5+ {(Qd5-a5+ Ka4-b3 Qa5-b4+) +M1/4 0} 21. Kb3 {(Ka4-b3
+Qa5-b4+) -M1/4 1} Qb4# {(Qa5-b4+) +M0/4 0} 0-1
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "6"]
+[White "Minsikfish v0.5"]
+[Black "Minsikfish v0.4"]
+[Result "1/2-1/2"]
+[BlackElo "100"]
+[ECO "B12"]
+[Opening "Caro-Kann"]
+[Time "00:05:00"]
+[Variation "Advance Variation, 3...c5 4.dxc5"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "22"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. e4 c6 2. d4 d5 3. e5 c5 4. dxc5 e6 5. Be3 Ne7 6. Bb5+ {(Bf1-b5+ Bc8-d7
+Bb5xd7+ Ke8xd7) +1.00/4 0} Bd7 {(Bc8-d7 Bb5xd7+ Ke8xd7 Qd1xd5+) -2.00/4 5}
+7. Nc3 {(Nb1-c3 Rh8-g8 Bb5xd7+ Ke8xd7) +1.00/4 0} Rg8 {(Rh8-g8 Bb5xd7+
+Ke8xd7) -1.00/3 0} 8. Ba4 {(Bb5-a4 Rg8-h8 Ba4xd7+ Ke8xd7) +1.00/4 0} Rh8
+{(Rg8-h8 Ba4xd7+ Ke8xd7) -1.00/3 0} 9. Bb5 {(Ba4-b5 Rh8-g8 Bb5xd7+ Ke8xd7)
++1.00/4 5} Rg8 {(Rh8-g8 Bb5xd7+ Ke8xd7) -1.00/3 0} 10. Ba4 {(Bb5-a4 Rg8-h8
+Ba4xd7+ Ke8xd7) +1.00/4 0} Rh8 {(Rg8-h8 Ba4xd7+ Ke8xd7) -1.00/3 0} 11. Bb5
+{(Ba4-b5 Rh8-g8 Bb5xd7+ Ke8xd7) +1.00/4 0} Rg8 {(Rh8-g8 Bb5xd7+ Ke8xd7)
+-1.00/3 0 3-fold repetition} 1/2-1/2
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "7"]
+[White "Minsikfish v0.4"]
+[Black "Minsikfish v0.5"]
+[Result "1/2-1/2"]
+[BlackElo "100"]
+[ECO "D44"]
+[Opening "Semi-Slav"]
+[Time "00:05:20"]
+[Variation "Botvinnik, 9.Nxg5"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "44"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 e6 5. Bg5 dxc4 6. e4 b5 7. e5 h6 8. Bh4
+g5 9. Nxg5 hxg5 10. Bxg5 Bb4 {(Bf8-b4 Bg5xf6 Bb4xc3+ b2xc3) -1.00/4 0} 11.
+Bxf6 {(Bg5xf6 Bb4xc3+ b2xc3) +1.00/3 1} Rxh2 {(Rh8xh2 Rh1xh2 Bb4xc3+ b2xc3)
+-5.00/4 0} 12. Rxh2 {(Rh1xh2 Bb4xc3+ b2xc3) +5.00/3 0} Bxc3+ {(Bb4xc3+
+b2xc3 Qd8-c7 Bf1xc4) -6.00/4 0} 13. bxc3 {(b2xc3 Qd8-c7 Rh2-h8+ Ke8-d7)
++5.00/4 1} Qc7 {(Qd8-c7 Rh2-h8+ Ke8-d7 Rh8xc8) -8.00/4 0} 14. Rh8+
+{(Rh2-h8+ Ke8-d7 Rh8xc8) +8.00/3 0} Kd7 {(Ke8-d7 Qd1-h5 c6-c5 Qh5xf7+
+Kd7-c6 Qf7xc7+) -15.00/6 3} 15. Rd8+ {(Rh8-d8+ Qc7xd8 Bf6xd8) +9.00/3 0}
+Qxd8 {(Qc7xd8 Bf6xd8 Kd7xd8 Bf1-e2 Kd8-e8 Be2xc4) -7.00/6 1} 16. Bxd8
+{(Bf6xd8 Kd7xd8 Bf1xc4) +7.00/3 0} Kxd8 {(Kd7xd8 Qd1-h5 Kd8-e8 Qh5-h8+
+Ke8-e7) -6.00/5 0} 17. Qh5 {(Qd1-h5 Kd8-e8 Qh5-h8+ Ke8-e7) +6.00/4 3} Ke7
+{(Kd8-e7 Qh5-h8 Nb8-d7 Qh8-g8 Nd7xe5 Qg8xc8) -8.00/6 1} 18. Qh8 {(Qh5-h8
+Bc8-d7 Qh8-g8 Nb8-a6) +6.00/4 4} Bd7 {(Bc8-d7 Qh8-g8 Bd7-e8 Qg8-h8 Be8-d7
+Qh8xb8) -9.00/6 2} 19. Qg8 {(Qh8-g8 Bd7-e8 Qg8-h8 Be8-d7) +6.00/4 2} Be8
+{(Bd7-e8 a2-a4 Be8-d7 a4xb5 c6xb5 Qg8xb8) -9.00/6 2} 20. Qh8 {(Qg8-h8
+Be8-d7 Qh8-g8 Nb8-a6) +6.00/4 2} Bd7 {(Be8-d7 Qh8-g8 Bd7-e8 Qg8-h8 Be8-d7
+Qh8xb8) -9.00/6 2} 21. Qg8 {(Qh8-g8 Bd7-e8 Qg8-h8 Be8-d7) +6.00/4 2} Be8
+{(Bd7-e8 a2-a4 Be8-d7 a4xb5 c6xb5 Qg8xb8) -9.00/6 2} 22. Qh8 {(Qg8-h8
+Be8-d7 Qh8-g8 Nb8-a6) +6.00/4 2} Bd7 {(Be8-d7 Qh8-g8 Bd7-e8 Qg8-h8 Be8-d7
+Qh8xb8) -9.00/6 2 3-fold repetition} 1/2-1/2
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "8"]
+[White "Minsikfish v0.5"]
+[Black "Minsikfish v0.4"]
+[Result "1/2-1/2"]
+[BlackElo "100"]
+[ECO "D44"]
+[Opening "Semi-Slav"]
+[Time "00:06:09"]
+[Variation "Botvinnik, 9.Nxg5"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "43"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. d4 d5 2. c4 c6 3. Nf3 Nf6 4. Nc3 e6 5. Bg5 dxc4 6. e4 b5 7. e5 h6 8. Bh4
+g5 9. Nxg5 hxg5 10. Bxg5 Rg8 {(Rh8-g8 Bg5xf6 Qd8xf6) +2.00/3 1} 11. Bxf6
+{(Bg5xf6 Qd8-d7 Bf6-h4 Rg8xg2) 0.00/4 0} Qd7 {(Qd8-d7 Bf6-h4 Rg8xg2) 0.00/3
+1} 12. Ne4 {(Nc3-e4 Rg8-g6 Bf6-h8 Qd7xd4) 0.00/4 1} Rg6 {(Rg8-g6 Bf6-h8
+Qd7xd4) 0.00/3 0} 13. Bh4 {(Bf6-h4 Bf8-g7 Ne4-c5 Bg7xe5) 0.00/4 0} Bg7
+{(Bf8-g7 Ne4-c5 Bg7xe5) 0.00/3 0} 14. Nd6+ {(Ne4-d6+ Ke8-f8 Qd1-h5 Bg7xe5
+Qh5xg6) +5.00/5 4} Kf8 {(Ke8-f8 Qd1-h5 Bg7xe5 Qh5xg6) -5.00/4 2} 15. Nxc8
+{(Nd6xc8 Qd7xc8 Rh1-g1 Bg7xe5) 0.00/4 0} Qxc8 {(Qd7xc8 Rh1-g1 Bg7xe5)
+0.00/3 0} 16. Bf6 {(Bh4-f6 Bg7-h6 Bf6-h8 Rg6xg2) 0.00/4 0} Bh6 {(Bg7-h6
+Bf6-h8 Rg6xg2) 0.00/3 0} 17. Bh4 {(Bf6-h4 Kf8-g8 Bh4-e7 Rg6xg2) 0.00/4 0}
+Kg8 {(Kf8-g8 Bh4-e7 Rg6xg2) 0.00/3 0} 18. Be7 {(Bh4-e7 Kg8-h8 Be7-d6
+Rg6xg2) 0.00/4 1} Kh8 {(Kg8-h8 Be7-d6 Rg6xg2) 0.00/3 0} 19. Bf6+ {(Be7-f6+
+Kh8-g8 Bf6-e7 Rg6xg2) 0.00/4 1} Kg8 {(Kh8-g8 Qd1-h5 Rg6xf6 e5xf6) -3.00/4
+3} 20. Be7 {(Bf6-e7 Kg8-h8 Be7-d6 Rg6xg2) 0.00/4 0} Kh8 {(Kg8-h8 Be7-d6
+Rg6xg2) 0.00/3 0} 21. Bf6+ {(Be7-f6+ Kh8-g8 Bf6-e7 Rg6xg2) 0.00/4 1} Kg8
+{(Kh8-g8 Qd1-h5 Rg6xf6 e5xf6) -3.00/4 3} 22. Be7 {(Bf6-e7 Kg8-h8 Be7-d6
+Rg6xg2) 0.00/4 0 3-fold repetition} 1/2-1/2
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "9"]
+[White "Minsikfish v0.4"]
+[Black "Minsikfish v0.5"]
+[Result "0-1"]
+[BlackElo "100"]
+[ECO "D53"]
+[Opening "QGD"]
+[Time "00:06:45"]
+[Variation "4.Bg5 Be7 5.Nf3 h6"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "30"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Be7 5. Nf3 h6 6. Qa4+ {(Qd1-a4+ Ke8-f8
+Bg5xf6) +3.00/3 1} Bd7 {(Bc8-d7 Qa4-b3 h6xg5 Nf3xg5 Rh8xh2) +3.00/5 2} 7.
+Qa5 {(Qa4-a5 h6xg5 Qa5xc7) -2.00/3 1} b6 {(b7-b6 Bg5xf6 b6xa5 Bf6xe7)
++3.00/4 0} 8. Bxf6 {(Bg5xf6 b6xa5 Bf6xe7) -3.00/3 1} gxf6 {(g7xf6 Nc3xd5
+b6xa5 Nd5xe7) +5.00/4 0} 9. Nxd5 {(Nc3xd5 b6xa5 Nd5xe7) -5.00/3 0} bxa5
+{(b6xa5 Nd5xe7 Ke8xe7 Nf3-g5) +8.00/4 0} 10. Nxe7 {(Nd5xe7 Ke8xe7 Nf3-g5)
+-8.00/3 0} Qxe7 {(Qd8xe7 Nf3-h4 Rh8-g8 Nh4-f3 Rg8xg2) +9.00/5 1} 11. Nh4
+{(Nf3-h4 Rh8-g8 Nh4-g6) -8.00/3 0} Qb4+ {(Qe7-b4+ Ke1-d1 Qb4xb2 Nh4-g6
+Qb2xa1+) +14.00/5 1} 12. Kd1 {(Ke1-d1 Qb4xb2 Nh4-g6 Qb2xa1+) -14.00/4 0}
+Qxb2 {(Qb4xb2 Ra1-c1 Qb2xd4+ Kd1-c2) +10.00/4 0} 13. Rc1 {(Ra1-c1 Rh8-g8
+Nh4-g6 Qb2xc1+) -14.00/4 7} Ba4+ {(Bd7-a4+ Rc1-c2 Qb2xc2+) +M2/5 2} 14. Rc2
+{(Rc1-c2 Qb2xc2+ Kd1-e1 Qc2-c3+) -M2/4 0} Qxc2+ {(Qb2xc2+ Kd1-e1 Qc2-c3+)
++M1/5 2} 15. Ke1 {(Kd1-e1 Qc2-c3+) -M1/4 0} Qc3# {(Qc2-c3+) +M0/4 5} 0-1
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "10"]
+[White "Minsikfish v0.5"]
+[Black "Minsikfish v0.4"]
+[Result "1/2-1/2"]
+[BlackElo "100"]
+[ECO "D53"]
+[Opening "QGD"]
+[Time "00:07:23"]
+[Variation "4.Bg5 Be7 5.Nf3 h6 6.Bxf6 Bxf6"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "24"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. d4 d5 2. c4 e6 3. Nc3 Nf6 4. Bg5 Be7 5. Nf3 h6 6. Bxf6 {(Bg5xf6 Be7xf6
+Qd1-a4+ Ke8-f8) 0.00/4 0} Bxf6 {(Be7xf6 Qd1-a4+ Ke8-f8) 0.00/3 0} 7. cxd5
+{(c4xd5 e6xd5 Qd1-a4+ Ke8-f8) 0.00/4 2} exd5 {(e6xd5 Qd1-a4+ Ke8-f8) 0.00/3
+0} 8. Ne5 {(Nf3-e5 Ke8-f8 Ne5-f3 Bf6xd4) -1.00/4 1} Kf8 {(Ke8-f8 Ne5-f3
+Bf6xd4) +1.00/3 0} 9. Nf3 {(Ne5-f3 Rh8-g8 Nf3-d2 Bf6xd4) -1.00/4 0} Rg8
+{(Rh8-g8 Nf3-d2 Bf6xd4) +1.00/3 0} 10. Ne5 {(Nf3-e5 Rg8-h8 Ne5-f3 Bf6xd4)
+-1.00/4 0} Rh8 {(Rg8-h8 Ne5-f3 Bf6xd4) +1.00/3 0} 11. Nf3 {(Ne5-f3 Rh8-g8
+Nf3-d2 Bf6xd4) -1.00/4 0} Rg8 {(Rh8-g8 Nf3-d2 Bf6xd4) +1.00/3 0} 12. Ne5
+{(Nf3-e5 Rg8-h8 Ne5-f3 Bf6xd4) -1.00/4 0} Rh8 {(Rg8-h8 Ne5-f3 Bf6xd4)
++1.00/3 0 3-fold repetition} 1/2-1/2
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "11"]
+[White "Minsikfish v0.4"]
+[Black "Minsikfish v0.5"]
+[Result "1/2-1/2"]
+[BlackElo "100"]
+[ECO "A44"]
+[Opening "Old Benoni"]
+[Time "00:07:38"]
+[Variation "Czech, 3.e4 d6 4.Nc3 Nf6"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "26"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. d4 c5 2. d5 e5 3. e4 d6 4. Nc3 Nf6 5. Be2 Nbd7 6. Bg5 {(Bc1-g5 Rh8-g8
+Bg5xf6) +3.00/3 0} h6 {(h7-h6 Bg5-h4 g7-g5 Bh4xg5) -1.00/4 0} 7. Bh4
+{(Bg5-h4 g7-g5 Bh4xg5) +1.00/3 0} g5 {(g7-g5 Bh4-g3 Rh8-g8 Bg3xe5) -1.00/4
+0} 8. Bg3 {(Bh4-g3 Rh8-g8 Bg3xe5) +1.00/3 0} Ke7 {(Ke8-e7 Be2-b5 Nd7-b8
+Bg3xe5) -1.00/4 0} 9. Bb5 {(Be2-b5 Nd7-b8 Bg3xe5) +1.00/3 0} Nb8 {(Nd7-b8
+Bb5-c4 Rh8-g8 Bg3xe5) -1.00/4 0} 10. Bc4 {(Bb5-c4 Rh8-g8 Bg3xe5) +1.00/3 1}
+Rg8 {(Rh8-g8 Bc4-b5 Rg8-h8 Bg3xe5) -1.00/4 0} 11. Bb5 {(Bc4-b5 Rg8-h8
+Bg3xe5) +1.00/3 1} Rh8 {(Rg8-h8 Bb5-c4 Rh8-g8 Bg3xe5) -1.00/4 0} 12. Bc4
+{(Bb5-c4 Rh8-g8 Bg3xe5) +1.00/3 1} Rg8 {(Rh8-g8 Bc4-b5 Rg8-h8 Bg3xe5)
+-1.00/4 0} 13. Bb5 {(Bc4-b5 Rg8-h8 Bg3xe5) +1.00/3 1} Rh8 {(Rg8-h8 Bb5-c4
+Rh8-g8 Bg3xe5) -1.00/4 0 3-fold repetition} 1/2-1/2
+
+[Event "Relative"]
+[Site "NSP-TIDS"]
+[Date "2025.02.04"]
+[Round "12"]
+[White "Minsikfish v0.5"]
+[Black "Minsikfish v0.4"]
+[Result "1/2-1/2"]
+[BlackElo "100"]
+[ECO "A44"]
+[Opening "Old Benoni"]
+[Time "00:07:54"]
+[Variation "Czech, 3.e4 d6 4.Nc3 Nf6"]
+[WhiteElo "100"]
+[TimeControl "120+1"]
+[Termination "normal"]
+[PlyCount "56"]
+[WhiteType "program"]
+[BlackType "program"]
+
+1. d4 c5 2. d5 e5 3. e4 d6 4. Nc3 Nf6 5. Be2 Nbd7 6. Bf1 {(Be2-f1 Bf8-e7
+Bf1-b5 Nf6xd5 Bb5xd7+) +2.00/5 3} Rg8 {(Rh8-g8 Nc3-b5 Nf6xd5) +1.00/3 0} 7.
+Nf3 {(Ng1-f3 Bf8-e7 Bf1-b5 Nf6xd5 Bb5xd7+) +2.00/5 3} Rh8 {(Rg8-h8 Nf3-g5
+Nf6xd5) +1.00/3 0} 8. Bb5 {(Bf1-b5 Rh8-g8 Bb5xd7+ Ke8xd7) 0.00/4 0} Rg8
+{(Rh8-g8 Bb5xd7+ Ke8xd7) 0.00/3 0} 9. Bg5 {(Bc1-g5 Rg8-h8 Bg5xf6 Qd8xf6
+Bb5xd7+) +3.00/5 4} Rh8 {(Rg8-h8 Bg5xf6 Qd8xf6) 0.00/3 0} 10. Bxf6 {(Bg5xf6
+Qd8xf6 Nf3-d2 Rh8-g8 Bb5xd7+) +3.00/5 3} Qxf6 {(Qd8xf6 Bb5xd7+ Ke8xd7)
+0.00/3 0} 11. Nd2 {(Nf3-d2 Rh8-g8 Bb5xd7+ Ke8xd7) 0.00/4 5} Rg8 {(Rh8-g8
+Bb5xd7+ Ke8xd7) 0.00/3 0} 12. Qh5 {(Qd1-h5 Rg8-h8 Qh5-g4 Rh8-g8 Bb5xd7+)
++3.00/5 4} Rh8 {(Rg8-h8 Bb5xd7+ Ke8xd7) 0.00/3 0} 13. Qf5 {(Qh5-f5 Rh8-g8
+Qf5xh7 Qf6xf2+) 0.00/4 0} Rg8 {(Rh8-g8 Qf5xh7 Qf6xf2+) 0.00/3 0} 14. Qxh7
+{(Qf5xh7 Qf6-h6 Qh7xg8 Qh6xd2+) +3.00/4 4} Qh6 {(Qf6-h6 Qh7xg8 Qh6xd2+)
+-3.00/3 0} 15. Qxg8 {(Qh7xg8 Ke8-d8 Bb5xd7 Kd8xd7) +6.00/4 4} Kd8 {(Ke8-d8
+Bb5xd7 Kd8xd7) -6.00/3 0} 16. Qxf7 {(Qg8xf7 Bf8-e7 Qf7-g8+ Kd8-c7) +7.00/4
+0} Be7 {(Bf8-e7 Qf7-g8+ Kd8-c7) -7.00/3 0} 17. Bxd7 {(Bb5xd7 Kd8xd7 Qf7-f5+
+Kd7-e8) +7.00/4 0} Kxd7 {(Kd8xd7 Qf7-f5+ Kd7-e8) -7.00/3 0} 18. Nb5
+{(Nc3-b5 Ra8-b8 Qf7-f5+ Kd7-e8) +7.00/4 0} Rb8 {(Ra8-b8 Qf7-f5+ Kd7-e8)
+-7.00/3 0} 19. Nxa7 {(Nb5xa7 Rb8-a8 Qf7-f5+ Kd7-e8) +8.00/4 0} Ra8 {(Rb8-a8
+Qf7-f5+ Kd7-e8) -8.00/3 0} 20. Qf5+ {(Qf7-f5+ Kd7-e8 Na7xc8 Be7-d8 Nc8xd6+)
++12.00/5 3} Ke8 {(Kd7-e8 Na7xc8 Be7-d8 Nc8xd6+) -12.00/4 4} 21. Nxc8
+{(Na7xc8 Ra8-b8 Nc8xe7 Ke8xe7 Qf5xe5+) +12.00/5 4} Bf8 {(Be7-f8 Nc8xd6+
+Bf8xd6) -9.00/3 0} 22. Nb6 {(Nc8-b6 Ra8-d8 Nd2-c4 Qh6xh2) +10.00/4 0} Rd8
+{(Ra8-d8 Nd2-c4 Qh6xh2) -10.00/3 0} 23. Qe6+ {(Qf5-e6+ Bf8-e7 Qe6-g8+
+Be7-f8) +11.00/4 0} Qxe6 {(Qh6xe6 d5xe6 Bf8-e7 Nb6-c8) -11.00/4 1} 24. dxe6
+{(d5xe6 Ke8-e7 Nb6-d5+ Ke7xe6) +10.00/4 0} Be7 {(Bf8-e7 Nb6-d7 Rd8-c8
+Nd7xe5) -12.00/4 2} 25. Nd7 {(Nb6-d7 Rd8-c8 Nd2-c4 Ke8-d8 Nd7xe5) +12.00/5
+1} Rc8 {(Rd8-c8 Nd2-c4 Ke8-d8 Nd7xe5) -12.00/4 4} 26. Nb6 {(Nd7-b6 Rc8-d8
+Nb6-d7 Rd8-c8 Nd7xe5) +12.00/5 1} Rd8 {(Rc8-d8 Nb6-d7 Rd8-c8 Nd7xe5)
+-12.00/4 5} 27. Nd7 {(Nb6-d7 Rd8-c8 Nd2-c4 Ke8-d8 Nd7xe5) +12.00/5 1} Rc8
+{(Rd8-c8 Nd2-c4 Ke8-d8 Nd7xe5) -12.00/4 4} 28. Nb6 {(Nd7-b6 Rc8-d8 Nb6-d7
+Rd8-c8 Nd7xe5) +12.00/5 1} Rd8 {(Rc8-d8 Nb6-d7 Rd8-c8 Nd7xe5) -12.00/4 5
+3-fold repetition} 1/2-1/2
+

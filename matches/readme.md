@@ -51,5 +51,5 @@ The starting positions consist of an equal number of `e4` and `d4` openings to c
 
 ### Environment
 
-- CPU: Intel Core i5-8250U 1.60GHz
-- RAM: 12GB
+- CPU: AMD Ryzen 5 7600 6-Core 3.80GHz
+- RAM: 32GB

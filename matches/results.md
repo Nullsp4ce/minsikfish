@@ -1,5 +1,11 @@
 # Test Match Results
 
+_Up to v0.5, Matches played on: 2025/2/18 (Tue)_
+
+Total number of games: 15 pairings \* 12 rounds = 180 games
+
+PGNs can be found [here](https://drive.google.com/drive/folders/1XEmNLA6BOuhR4AhJdZBDWvmdTz_nZuHM?usp=drive_link).
+
 ### Rating List
 
 _Calculated with [BayesElo](https://www.remi-coulom.fr/Bayesian-Elo/)_

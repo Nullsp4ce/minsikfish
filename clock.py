@@ -8,15 +8,6 @@ BUFFER_MILLIS = 200
 BUFFER_MOVES = 2
 
 
-class State(Enum):
-    IDLE = 1
-    SEARCH = 2
-    # PONDER = 3
-
-
-state: State = State.IDLE
-
-
 class TimingMode(Enum):
     DEPTH = 1
     NODES = 2
@@ -31,6 +22,9 @@ class SearchLimiter:
         self.depth = depth
         self.nodes = nodes
         self.movetime = movetime
+
+    def movetime_nano(self):
+        return self.movetime * 1_000_000
 
 
 lim: SearchLimiter

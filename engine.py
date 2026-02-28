@@ -1,5 +1,6 @@
 # pylint: disable=missing-module-docstring, missing-class-docstring, missing-function-docstring
 
+from enum import Enum
 from time import perf_counter_ns
 from math import trunc
 import sys
@@ -12,15 +13,22 @@ MATE_LIMIT = 1000
 VALUE = {"P": 100, "N": 300, "B": 300, "R": 500, "Q": 900, "K": INFINITY}
 
 
-class Globals:
+class State(Enum):
+    IDLE = 1
+    SEARCH = 2
+    # PONDER = 3
+
+
+class Searcher:
     def __init__(self):
-        self.board = chess.Board(START_FEN)
         self.nodes = 0
         self.start_nanos = 0
         self.depth = 0
 
 
-g = Globals()
+sea = Searcher()
+state = State.IDLE
+board = chess.Board(START_FEN)
 
 
 def mate_distancing(num):
@@ -31,21 +39,17 @@ def mate_distancing(num):
     return num
 
 
-def push(move: chess.Move):
-    g.board.push(move)
-
-
 def is_stm_white():
-    return g.board.turn == chess.WHITE
+    return board.turn == chess.WHITE
 
 
 def hit_blunt():
     # actually evaluation function
     score = 0
-    for _, piece in g.board.piece_map().items():
+    for _, piece in board.piece_map().items():
         if piece is None:
             continue
-        if piece.color is g.board.turn:
+        if piece.color is board.turn:
             score += VALUE[piece.symbol().upper()]
         else:
             score -= VALUE[piece.symbol().upper()]
@@ -54,21 +58,19 @@ def hit_blunt():
 
 def should_runsik():
     # called in IDDFS root
-    if clock.state == clock.State.IDLE:
+    if state == State.IDLE:
         return True
     match clock.lim.mode:
         case clock.TimingMode.DEPTH:
-            return g.depth > clock.lim.depth
+            return sea.depth > clock.lim.depth
         case clock.TimingMode.NODES:
-            return g.nodes > clock.lim.nodes
+            return sea.nodes > clock.lim.nodes
         case mode if mode in [clock.TimingMode.MOVETIME, clock.TimingMode.TC]:
             # branching factor: dictates whether next ply's search can fully pass
             # if BF = 3, 3 / 1/(1-1/3) = x2 of used time is needed again
             bf = 20
             cur_nanos = perf_counter_ns()
-            return (cur_nanos - g.start_nanos) * (
-                bf - 1
-            ) > clock.lim.movetime * 1_000_000
+            return (cur_nanos - sea.start_nanos) * (bf - 1) > clock.lim.movetime_nano()
         case _:
             return False
 
@@ -76,79 +78,79 @@ def should_runsik():
 def should_runsik_nodes():
     # 'run every few thousand nodes or so': called at depth 3 left
     # (affected by general nodes per depth)
-    if clock.state == clock.State.IDLE:
+    if state == State.IDLE:
         return True
     match clock.lim.mode:
         case clock.TimingMode.DEPTH:
-            return g.depth > clock.lim.depth
+            return sea.depth > clock.lim.depth
         case clock.TimingMode.NODES:
-            return g.nodes > clock.lim.nodes
+            return sea.nodes > clock.lim.nodes
         case mode if mode in [clock.TimingMode.MOVETIME, clock.TimingMode.TC]:
             # quit only if movetime is passed (different from root fx)
             cur_nanos = perf_counter_ns()
-            return (cur_nanos - g.start_nanos) > clock.lim.movetime * 1_000_000
+            return (cur_nanos - sea.start_nanos) > clock.lim.movetime_nano()
         case _:
             return False
 
 
 def awake():
     # IDDFS function
-    g.nodes = 0
-    g.start_nanos = perf_counter_ns()
-    g.depth = 1
+    sea.nodes = 0
+    sea.start_nanos = perf_counter_ns()
+    sea.depth = 1
     while True:
-        next_info = struggle(depth=g.depth)
+        next_info = struggle(depth_remaining=sea.depth)
         if next_info is None:
             break
         (pv, score) = next_info
         end_nanos = perf_counter_ns()
-        nanos_time = end_nanos - g.start_nanos
+        nanos_time = end_nanos - sea.start_nanos
         millis_time = trunc(nanos_time / 1_000_000)
-        nps = trunc(g.nodes * 1_000_000_000 / (nanos_time))
+        nps = trunc(sea.nodes * 1_000_000_000 / (nanos_time))
         pv_uci = list(map(lambda move: move.uci(), pv))
         print(
-            f"info depth {g.depth} score cp {score} "
-            f"time {millis_time} nodes {g.nodes} nps {nps} "
+            f"info depth {sea.depth} score cp {score} "
+            f"time {millis_time} nodes {sea.nodes} nps {nps} "
             f"pv {' '.join(pv_uci)}"
         )
         sys.stdout.flush()
-        g.depth += 1
+        sea.depth += 1
         if should_runsik():
             break
     return pv_uci[0]
 
 
 def struggle(
-    alpha=-INFINITY, beta=INFINITY, depth=1
+    alpha=-INFINITY, beta=INFINITY, depth_remaining=1
 ) -> tuple[list[chess.Move], int] | None:
     # actually search function
 
-    if depth == 3 and should_runsik_nodes():
+    if depth_remaining == 3 and should_runsik_nodes():
         return
 
-    g.nodes += 1
+    sea.nodes += 1
 
-    if g.board.is_checkmate():
+    if board.is_checkmate():
         return ([], -INFINITY)
-    if g.board.is_stalemate():
+    if board.is_stalemate():
         return ([], 0)
 
-    if depth == 0:
+    if depth_remaining == 0:
         return ([], hit_blunt())
 
-    moves = g.board.generate_legal_moves()
+    moves = board.generate_legal_moves()
     pv: list[chess.Move] = []
     best_score = -INFINITY
 
     for move in moves:
-        g.board.push(move)
-        next_info = struggle(-beta, -alpha, depth - 1)
+        board.push(move)
+        next_info = struggle(-beta, -alpha, depth_remaining - 1)
         if next_info is None:
             return None
         (following, score) = next_info
         score *= -1
         score = mate_distancing(score)
-        g.board.pop()
+        board.pop()
 
         # fail-soft alpha-beta
         if score > best_score:

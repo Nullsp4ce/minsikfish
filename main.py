@@ -2,12 +2,7 @@
 
 import threading
 import sys
-from engine import (
-    START_FEN,
-    awake,
-    g,
-    is_stm_white,
-)
+import engine
 import clock
 
 
@@ -54,7 +49,7 @@ def ready(commands):
 
 def new_game(commands):
     del commands
-    g.board.set_fen(START_FEN)
+    engine.board.set_fen(engine.START_FEN)
 
 
 def set_position(commands):
@@ -64,26 +59,26 @@ def set_position(commands):
     if len(commands) > 0:
         mode = commands[0]
     if mode == "startpos":
-        g.board.set_fen(START_FEN)
+        engine.board.set_fen(engine.START_FEN)
         consumed = 1
     elif mode == "fen":
         # fully qualified FEN has 6 segments, but... oh no
         fen = " ".join(commands[1:7])
-        g.board.set_fen(fen)
+        engine.board.set_fen(fen)
         consumed = 7  # ?
 
     if len(commands) > consumed:
         for move_uci in commands[consumed + 1 :]:
-            g.board.push_uci(move_uci)
+            engine.board.push_uci(move_uci)
 
 
 def d(commands):
     del commands
-    print(g.board)
+    print(engine.board)
 
 
 def search():
-    bm = awake()
+    bm = engine.awake()
 
     # print when search is completed/stopped
     print(f"bestmove {bm}")
@@ -92,15 +87,15 @@ def search():
 
 
 def search_start(commands):
-    clock.lim = clock.from_cmd(is_stm_white(), commands)
-    clock.state = clock.State.SEARCH
+    clock.lim = clock.from_cmd(engine.is_stm_white(), commands)
+    engine.state = engine.State.SEARCH
     pain = threading.Thread(target=search, args=())
     pain.start()
 
 
 def stop(commands):
     del commands
-    clock.state = clock.State.IDLE
+    engine.state = engine.State.IDLE
 
 
 def quit_minsik(commands):

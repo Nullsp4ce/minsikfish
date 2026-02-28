@@ -1,5 +1,7 @@
 # pylint: disable=missing-module-docstring, missing-function-docstring
 
+import sys
+
 import engine
 import clock
 
@@ -87,7 +89,8 @@ def search_stop(commands):
 
 def quit_minsik(commands):
     # print("uci.quit")
-    search_stop(commands)
+    del commands
+    sys.exit(0)
 
 
 wait()

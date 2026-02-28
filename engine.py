@@ -1,6 +1,7 @@
 # pylint: disable=missing-module-docstring, missing-class-docstring, missing-function-docstring
 
 from enum import Enum
+import threading
 from time import perf_counter_ns
 from math import trunc
 import sys
@@ -24,10 +25,10 @@ class Searcher:
         self.nodes = 0
         self.start_nanos = 0
         self.depth = 0
+        self.state = State.IDLE
 
 
 sea = Searcher()
-state = State.IDLE
 board = chess.Board(START_FEN)
 
 
@@ -58,7 +59,7 @@ def hit_blunt():
 
 def should_runsik():
     # called in IDDFS root
-    if state == State.IDLE:
+    if sea.state == State.IDLE:
         return True
     match clock.lim.mode:
         case clock.TimingMode.DEPTH:
@@ -78,7 +79,7 @@ def should_runsik():
 def should_runsik_nodes():
     # 'run every few thousand nodes or so': called at depth 3 left
     # (affected by general nodes per depth)
-    if state == State.IDLE:
+    if sea.state == State.IDLE:
         return True
     match clock.lim.mode:
         case clock.TimingMode.DEPTH:
@@ -162,3 +163,21 @@ def struggle(
             return ([], best_score)  # can also exceed beta
 
     return (pv, best_score)
+
+
+def start():
+    sea.state = State.SEARCH
+    pain = threading.Thread(target=search, args=())
+    pain.start()
+
+
+def search():
+    bm = awake()
+
+    print(f"bestmove {bm}")
+    print("info string ahnsik")
+    sys.stdout.flush()
+
+
+def stop():
+    sea.state = State.IDLE

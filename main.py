@@ -1,7 +1,5 @@
 # pylint: disable=missing-module-docstring, missing-function-docstring
 
-import threading
-import sys
 import engine
 import clock
 
@@ -23,7 +21,7 @@ def parse(read: str):
         "ucinewgame": new_game,
         "print": d,
         "go": search_start,
-        "stop": stop,
+        "stop": search_stop,
         "quit": quit_minsik,
     }
     try:
@@ -77,30 +75,19 @@ def d(commands):
     print(engine.board)
 
 
-def search():
-    bm = engine.awake()
-
-    # print when search is completed/stopped
-    print(f"bestmove {bm}")
-    print("info string ahnsik")
-    sys.stdout.flush()
-
-
 def search_start(commands):
     clock.lim = clock.from_cmd(engine.is_stm_white(), commands)
-    engine.state = engine.State.SEARCH
-    pain = threading.Thread(target=search, args=())
-    pain.start()
+    engine.start()
 
 
-def stop(commands):
+def search_stop(commands):
     del commands
-    engine.state = engine.State.IDLE
+    engine.stop()
 
 
 def quit_minsik(commands):
     # print("uci.quit")
-    stop(commands)
+    search_stop(commands)
 
 
 wait()

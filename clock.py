@@ -1,18 +1,11 @@
+# pylint: disable=missing-module-docstring, missing-class-docstring, missing-function-docstring, too-many-arguments, too-many-positional-arguments
+
 from enum import Enum
 
 # 24 +2 which is for the buffer below
-moves_to_go_default = 26
-buffer_millis = 200
-buffer_moves = 2
-
-
-class State(Enum):
-    IDLE = 1
-    SEARCH = 2
-    # PONDER = 3
-
-
-state: State = State.IDLE
+MOVES_TO_GO_DEFAULT = 26
+BUFFER_MILLIS = 200
+BUFFER_MOVES = 2
 
 
 class TimingMode(Enum):
@@ -30,15 +23,17 @@ class SearchLimiter:
         self.nodes = nodes
         self.movetime = movetime
 
+    def movetime_nano(self):
+        return self.movetime * 1_000_000
+
 
 lim: SearchLimiter
 
 
 def from_fixed(movetime: int):
-    if movetime > buffer_millis:
-        return movetime - buffer_millis
-    else:
-        return 0
+    if movetime > BUFFER_MILLIS:
+        return movetime - BUFFER_MILLIS
+    return 0
 
 
 def lim_from_fixed(movetime: int):
@@ -47,9 +42,9 @@ def lim_from_fixed(movetime: int):
 
 def from_tc(is_white: bool, wtime, btime, winc, binc, movestogo):
     if movestogo > 0:
-        moves_to_go_actual = movestogo + buffer_moves
+        moves_to_go_actual = movestogo + BUFFER_MOVES
     else:
-        moves_to_go_actual = moves_to_go_default
+        moves_to_go_actual = MOVES_TO_GO_DEFAULT
     if is_white:
         movetime = winc + wtime / moves_to_go_actual
     else:

@@ -7,7 +7,6 @@ import clock
 
 
 def wait():
-    # print("uci.wait")
     should = True
     while should:
         should = parse(input())
@@ -53,7 +52,6 @@ def new_game(commands):
 
 
 def set_position(commands):
-    # print("uci.set_position")
     consumed = 0
     mode = ""
     if len(commands) > 0:
@@ -62,10 +60,10 @@ def set_position(commands):
         engine.board.set_fen(engine.START_FEN)
         consumed = 1
     elif mode == "fen":
-        # fully qualified FEN has 6 segments, but... oh no
+        # fully qualified FEN has 6 segments
         fen = " ".join(commands[1:7])
         engine.board.set_fen(fen)
-        consumed = 7  # ?
+        consumed = 7
 
     if len(commands) > consumed:
         for move_uci in commands[consumed + 1 :]:
@@ -88,7 +86,6 @@ def search_stop(commands):
 
 
 def quit_minsik(commands):
-    # print("uci.quit")
     del commands
     sys.exit(0)
 

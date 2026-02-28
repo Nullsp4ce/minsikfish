@@ -1,3 +1,5 @@
+# pylint: disable=missing-module-docstring, missing-class-docstring, missing-function-docstring
+
 from enum import Enum
 
 # 24 +2 which is for the buffer below

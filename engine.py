@@ -39,10 +39,6 @@ def is_stm_white():
     return g.board.turn == chess.WHITE
 
 
-def get_nanos():
-    return perf_counter_ns()
-
-
 def hit_blunt():
     # actually evaluation function
     score = 0
@@ -69,7 +65,7 @@ def should_runsik():
             # branching factor: dictates whether next ply's search can fully pass
             # if BF = 3, 3 / 1/(1-1/3) = x2 of used time is needed again
             bf = 20
-            cur_nanos = get_nanos()
+            cur_nanos = perf_counter_ns()
             return (cur_nanos - g.start_nanos) * (
                 bf - 1
             ) > clock.lim.movetime * 1_000_000
@@ -89,7 +85,7 @@ def should_runsik_nodes():
             return g.nodes > clock.lim.nodes
         case mode if mode in [clock.TimingMode.MOVETIME, clock.TimingMode.TC]:
             # quit only if movetime is passed (different from root fx)
-            cur_nanos = get_nanos()
+            cur_nanos = perf_counter_ns()
             return (cur_nanos - g.start_nanos) > clock.lim.movetime * 1_000_000
         case _:
             return False
@@ -98,14 +94,14 @@ def should_runsik_nodes():
 def awake():
     # IDDFS function
     g.nodes = 0
-    g.start_nanos = get_nanos()
+    g.start_nanos = perf_counter_ns()
     g.depth = 1
     while True:
-        next_info = struggle(_depth=g.depth)
+        next_info = struggle(depth=g.depth)
         if next_info is None:
             break
         (pv, score) = next_info
-        end_nanos = get_nanos()
+        end_nanos = perf_counter_ns()
         nanos_time = end_nanos - g.start_nanos
         millis_time = trunc(nanos_time / 1_000_000)
         nps = trunc(g.nodes * 1_000_000_000 / (nanos_time))
@@ -123,11 +119,11 @@ def awake():
 
 
 def struggle(
-    alpha=-INFINITY, beta=INFINITY, _depth=1
+    alpha=-INFINITY, beta=INFINITY, depth=1
 ) -> tuple[list[chess.Move], int] | None:
     # actually search function
 
-    if _depth == 3 and should_runsik_nodes():
+    if depth == 3 and should_runsik_nodes():
         return
 
     g.nodes += 1
@@ -137,7 +133,7 @@ def struggle(
     if g.board.is_stalemate():
         return ([], 0)
 
-    if _depth == 0:
+    if depth == 0:
         return ([], hit_blunt())
 
     moves = g.board.generate_legal_moves()
@@ -146,7 +142,7 @@ def struggle(
 
     for move in moves:
         g.board.push(move)
-        next_info = struggle(-beta, -alpha, _depth - 1)
+        next_info = struggle(-beta, -alpha, depth - 1)
         if next_info is None:
             return None
         (following, score) = next_info

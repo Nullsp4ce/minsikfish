@@ -35,7 +35,7 @@ def parse(read: str):
 
 def uci(commands):
     del commands
-    print("id name Minsikfish 0.5")
+    print("id name Minsikfish 0.5.1")
     print("id author Nullsp4ce")
     # further options go here
     print("uciok")

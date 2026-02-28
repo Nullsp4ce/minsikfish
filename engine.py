@@ -127,7 +127,7 @@ def struggle(
     # actually search function
 
     if depth_remaining == 3 and should_runsik_nodes():
-        return
+        return None
 
     sea.nodes += 1
 
@@ -173,6 +173,10 @@ def start():
 
 def search():
     bm = awake()
+
+    # board.clear_stack() doesn't work for same purpose??
+    while len(board.move_stack) > 0:
+        board.pop()
 
     print(f"bestmove {bm}")
     print("info string ahnsik")
